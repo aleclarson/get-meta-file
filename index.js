@@ -55,15 +55,6 @@ module.exports = function(options = {}) {
     answer === 'y' && process.chdir(path.dirname(metaPath));
   }
 
-  try {
-    debug(`attempting to load .meta file with module.exports format at ${metaPath}`); // prettier-ignore
-    const meta = require(metaPath);
-    debug(`.meta file found at ${metaPath}`);
-    if (meta) return meta;
-  } catch (e) {
-    debug(`no module.exports format .meta file found at ${metaPath}: ${e}`);
-  }
-
   let buffer = null;
   try {
     debug(`attempting to load .meta file with json format at ${metaPath}`);
